@@ -108,3 +108,11 @@ $(document).ready(function()    {
 
 });
 
+
+function getCredentials(){
+  var name = sessionStorage.getItem('name');
+  var airport = sessionStorage.getItem('airport');
+  console.log(name + airport);
+  var str = "<h1>"+name+", "+airport+"</h1>";
+  $("#credentials").html(str);
+}

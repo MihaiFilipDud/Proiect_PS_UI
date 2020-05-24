@@ -67,23 +67,36 @@ $(document).ready(function()    {
             url: 'http://localhost:8080/tryLogin?username=' + username + '&password=' + password,
             dataType: 'json',
             success: function(data){
-                console.log("Succes");
-
-               for (var key in data) {
-                 if (data.hasOwnProperty(key)) {
-                    if (/company/.test(key)) {
-                      console.log('match!', data[key]); // do stuff here!
-                      //window.alert("Manager logged in successfully");
-                      window.location.href = "manager.html";
-                     
-                    }
-                    else{
-                      //window.alert("Controller logged in successfully");
-                      window.location.href = "controller.html";
-
+                  console.log("Succes");
+                  var bool = 0;
+                 for (var key in data) {
+                   if (data.hasOwnProperty(key)) {
+                      if (/company/.test(key)) {
+                        console.log('match!', data[key]); // do stuff here!
+                        //window.alert("Manager logged in successfully");
+                        bool = 1;
+                      }
                     }
                   }
-                }
+
+                  sessionStorage.setItem("name", data.name);
+                  var x = sessionStorage.getItem("name");
+                  console.log(x);
+                  if (bool == 1){
+                        
+                        window.location.href = "manager.html";
+                        
+                        sessionStorage.setItem('company', data.company);
+                        
+                       
+                      }
+                      else{
+                        //window.alert("Controller logged in successfully");
+                        sessionStorage.setItem('airport', data.airport);
+                        window.location.href = "controller.html";
+
+                      }
+                  
             },
             error: function(){
                 console.log("Error login");

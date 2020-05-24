@@ -7,10 +7,11 @@
 <link rel="stylesheet" href="./style.css">
 
 </head>
-<body>
+<body onload="getCredentials();">
 <!-- partial:index.partial.html -->
 <div class="form">
       <h1>Manager terminal</h1>
+      <div id="credentials"></div>
       <ul class="tab-group">
         <li class="tab active"><a href="#add_plane">Add plane</a></li>
         <li class="tab"><a href="#add_flight">Add flight</a></li>
@@ -41,7 +42,7 @@
 
           <div class="field-wrap">
             <label>
-              Manufacturer<span class="req">*</span>
+              Flight Company<span class="req">*</span>
             </label>
             <input type="text"required autocomplete="off" id ="company"/>
           </div>
@@ -83,16 +84,18 @@
           
           <div class="field-wrap">
             <label>
-              Arrival, dd/MM/yyyy<span class="req">*</span>
+              Arrival<span class="req">*</span>
             </label>
-            <input type="text"required autocomplete="off" id="arrival"/>
+            <br><br>
+            <input type="datetime-local"required autocomplete="off" id="arrival"/>
           </div>
 
           <div class="field-wrap">
             <label>
-              Departure, dd/MM/yyyy<span class="req">*</span>
+              Departure<span class="req">*</span>
             </label>
-            <input type="text"required autocomplete="off" id="departure"/>
+            <br><br>
+            <input type="datetime-local"required autocomplete="off" id="departure"/>
           </div>
 
           <div class="field-wrap">

@@ -36,10 +36,12 @@ function listSchedule(){
 }
 
 function listPlanes(){
-
+      
+        var company = sessionStorage.getItem('company');
+        console.log(company);
         $.ajax({
             type: 'GET',
-            url: 'http://localhost:8080/getPlanes',
+            url: 'http://localhost:8080/getPlanes?company='+company,
             dataType: 'json',
             success: function(data){
                 

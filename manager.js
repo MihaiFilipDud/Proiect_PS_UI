@@ -152,3 +152,11 @@ $(document).ready(function()    {
 
 });
 
+function getCredentials(){
+  var name = sessionStorage.getItem('name');
+  var company = sessionStorage.getItem('company');
+  console.log(name + company);
+  var str = "<h1>"+name+", "+company+"</h1>";
+  $("#credentials").html(str);
+}
+
