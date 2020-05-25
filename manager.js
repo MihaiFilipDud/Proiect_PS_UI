@@ -1,3 +1,6 @@
+var name = sessionStorage.getItem('name');
+var company = sessionStorage.getItem('company');
+
 $('.form').find('input, textarea').on('keyup blur focus', function (e) {
   
   var $this = $(this),
@@ -61,7 +64,7 @@ $(document).ready(function()    {
     $("#plane_button").click(function(e)    {
         var id = $("#id").val().trim();
         var model = $("#model").val().trim();
-        var company = $("#company").val().trim();
+        //var company = $("#company").val().trim();
 
         $.ajax({
             type: 'POST',
@@ -153,8 +156,7 @@ $(document).ready(function()    {
 });
 
 function getCredentials(){
-  var name = sessionStorage.getItem('name');
-  var company = sessionStorage.getItem('company');
+  
   console.log(name + company);
   var str = "<h1>"+name+", "+company+"</h1>";
   $("#credentials").html(str);
